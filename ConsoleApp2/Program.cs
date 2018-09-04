@@ -10,7 +10,7 @@ namespace ConsoleApp2 {
         static void Main(string[] args) {
             Console.OutputEncoding = Encoding.UTF8;
 
-            StreamReader reader = new StreamReader(File.OpenRead(@"C:\Users\oleks\Downloads\tz_opendata_z01012018_po01082018\tz_opendata_z01012018_po01082018.csv"), Encoding.UTF8);
+            StreamReader reader = new StreamReader(File.OpenRead(@"D:\CarData\tz_opendata_z01012017_po31122017.csv"), Encoding.UTF8);
             List<Model> models = new List<Model>();
 
             CSVParser cSVParser = new CSVParser();
@@ -41,6 +41,7 @@ namespace ConsoleApp2 {
 
                 singleLineWorker = sourceStreamReader.ReadLine();
                 singleLineWorker = singleLineWorker.Replace("\"", "");
+                singleLineWorker = singleLineWorker.Replace("\\","/");
 
                 csvValues = singleLineWorker.Split(';');
                 for (int i = 0; i < csvValues.Length - 1; i++) {
