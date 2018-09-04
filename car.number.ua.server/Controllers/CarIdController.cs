@@ -24,7 +24,8 @@ namespace car.id.server.Controllers
 
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
-        {
+        
+            {
             ICarIdRepository repo = new CarIdRepository();
 
             try
