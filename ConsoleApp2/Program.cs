@@ -41,7 +41,7 @@ namespace ConsoleApp2 {
 
                 singleLineWorker = sourceStreamReader.ReadLine();
                 singleLineWorker = singleLineWorker.Replace("\"", "");
-                singleLineWorker = singleLineWorker.Replace("\\","/");
+                singleLineWorker = singleLineWorker.Replace("\\", "/");
 
                 csvValues = singleLineWorker.Split(';');
                 for (int i = 0; i < csvValues.Length - 1; i++) {

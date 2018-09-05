@@ -75,11 +75,9 @@ namespace car.id.server.Controllers {
         public async Task<ActionResult<List<CarInfo>>> GetInfoByCarNumber(string carNumber) {
             ICarIdRepository repo = new CarIdRepository();
 
-            if (carNumber.Length < 8) return BadRequest("invalid car number");
+            if (carNumber.Length < 3) return BadRequest("invalid car number");
 
-            List<CarInfo> carInfos = await repo.GetCarinfoByCarNumberAsync(carNumber);
-
-            return Ok(carInfos);
+            return Ok(await repo.SearchForInfoByLicencePlate(carNumber));
         }
     }
 }

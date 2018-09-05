@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using car.id.server.DbConfig;
 
 namespace car.id.server.Migrations
 {
     [DbContext(typeof(CarIdDataContext))]
-    partial class CarIdDataContextModelSnapshot : ModelSnapshot
+    [Migration("20180905155717_AddedSeparateTablesPerYear")]
+    partial class AddedSeparateTablesPerYear
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,8 +85,6 @@ namespace car.id.server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NRegNew");
-
                     b.ToTable("Posts");
                 });
 
@@ -152,8 +152,6 @@ namespace car.id.server.Migrations
                         .HasMaxLength(250);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("NRegNew");
 
                     b.ToTable("Posts2013");
                 });
@@ -223,8 +221,6 @@ namespace car.id.server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NRegNew");
-
                     b.ToTable("Posts2014");
                 });
 
@@ -292,8 +288,6 @@ namespace car.id.server.Migrations
                         .HasMaxLength(250);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("NRegNew");
 
                     b.ToTable("Posts2015");
                 });
@@ -363,8 +357,6 @@ namespace car.id.server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NRegNew");
-
                     b.ToTable("Posts2016");
                 });
 
@@ -433,8 +425,6 @@ namespace car.id.server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NRegNew");
-
                     b.ToTable("Posts2017");
                 });
 
@@ -502,8 +492,6 @@ namespace car.id.server.Migrations
                         .HasMaxLength(250);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("NRegNew");
 
                     b.ToTable("Posts2018");
                 });

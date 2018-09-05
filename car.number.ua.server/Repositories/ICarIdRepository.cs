@@ -12,6 +12,8 @@ namespace car.id.server.Repositories {
 
         Task<List<CarInfo>> GetCarinfoByCarNumberAsync(string carNumber);
 
+        Task<IEnumerable<CarInfo>> SearchForInfoByLicencePlate(string number);
+
         void Save();
     }
 }

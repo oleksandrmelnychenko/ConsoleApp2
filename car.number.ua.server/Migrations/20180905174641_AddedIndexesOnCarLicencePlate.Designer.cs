@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using car.id.server.DbConfig;
 
 namespace car.id.server.Migrations
 {
     [DbContext(typeof(CarIdDataContext))]
-    partial class CarIdDataContextModelSnapshot : ModelSnapshot
+    [Migration("20180905174641_AddedIndexesOnCarLicencePlate")]
+    partial class AddedIndexesOnCarLicencePlate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

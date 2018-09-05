@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace car.id.server.Models
-{
-    public class CarInfo
-    {
-        public int Id { get; set; }
+namespace car.id.server.Models {
+    public class CarInfo {
+        public long Id { get; set; }
+
         public string Person { get; set; }
 
         public string RegAddrKoatuu { get; set; }
