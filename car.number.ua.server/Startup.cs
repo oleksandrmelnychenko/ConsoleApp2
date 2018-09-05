@@ -27,7 +27,7 @@ namespace car.id.server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            var connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=WfDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            var connection = @"Data Source=78.152.169.137;Initial Catalog = CarIdDb;Integrated Security = False;User ID = sa;Password = 5e9d11a14ad1c8dd77e98ef9b53fd1ba_Aa;Connect Timeout = 30;Encrypt = False;TrustServerCertificate = True;ApplicationIntent = ReadWrite;MultiSubnetFailover = False;";
             services.AddDbContext<CarIdDataContext>(options => options.UseSqlServer(connection));
         }
         //Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False

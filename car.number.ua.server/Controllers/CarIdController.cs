@@ -3,38 +3,27 @@ using car.id.server.Models;
 using car.id.server.Repositories;
 using ConsoleApp2;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace car.id.server.Controllers
-{
+namespace car.id.server.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarIdController : ControllerBase
-    {
-        public CarIdController()
-        {
+    public class CarIdController : ControllerBase {
+
+        public CarIdController() {
 
         }
 
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        
-            {
+        public ActionResult<string> Get(int id) {
             ICarIdRepository repo = new CarIdRepository();
 
-            try
-            {
+            try {
                 var d = DataBuilder.GetData();
-                d.ForEach(t =>
-                {
-                    var CarIdInfo = new CarInfo
-                    {
+                d.ForEach(t => {
+                    var CarIdInfo = new CarInfo {
                         Body = t.Body,
                         Brand = t.Brand,
                         Capacity = t.Capacity,
@@ -60,32 +49,37 @@ namespace car.id.server.Controllers
                 });
 
                 repo.Save();
-            }
-            catch (Exception exc)
-            {
+            } catch (Exception exc) {
                 throw;
             }
             return "value";
         }
 
         [HttpPost()]
-        public IActionResult Post()
-        {
+        public IActionResult Post() {
             ICarIdRepository repo = new CarIdRepository();
 
-            try
-            {
+            try {
                 var d = DataBuilder.GetData();
-               
+
                 //repo.NewCarIdInfo(null);
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
 
                 throw;
             }
 
             return Ok();
+        }
+
+        [HttpGet("getinfobycarnumber")]
+        public async Task<ActionResult<List<CarInfo>>> GetInfoByCarNumber(string carNumber) {
+            ICarIdRepository repo = new CarIdRepository();
+
+            if (carNumber.Length < 8) return BadRequest("invalid car number");
+
+            List<CarInfo> carInfos = await repo.GetCarinfoByCarNumberAsync(carNumber);
+
+            return Ok(carInfos);
         }
     }
 }
