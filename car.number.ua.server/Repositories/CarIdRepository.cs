@@ -25,7 +25,7 @@ namespace car.id.server.Repositories {
                 carInfo = CarIdDataContext.Posts.AsNoTracking().FirstOrDefault(n => n.NRegNew.Contains(carNumber));
             } catch (Exception ex) {
                 Debug.WriteLine($"ERROR:{ex}");
-                throw;
+                throw new Exception(ex.Message);
             }
 
             return carInfo;
